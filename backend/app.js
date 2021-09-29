@@ -1,9 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require("dotenv");
+dotenv.config();
 
 const userRoutes = require('./routes/user');
 
-mongoose.connect('mongodb+srv://firstUser:hereToLearn@cluster0.esjvw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+const MongoPassWord = process.env.MONGODB_PASSWORD;
+console.log(MongoPassWord, 'kiki');
+
+mongoose.connect(`mongodb+srv://firstUser:${MongoPassWord}@cluster0.esjvw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
