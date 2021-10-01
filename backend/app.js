@@ -1,20 +1,18 @@
 const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
 dotenv.config();
+const path = require('path');
 
 const userRoutes = require('./routes/user');
+const sauceRoutes = require('./routes/sauce');
 
-const MongoPassWord = process.env.MONGODB_PASSWORD;
-console.log(MongoPassWord, 'kiki');
-
-mongoose.connect(`mongodb+srv://firstUser:${MongoPassWord}@cluster0.esjvw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+mongoose.connect(process.env.MONGODB_CONNECT,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
-
-const app = express();
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -25,7 +23,10 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
 app.use('/api/auth', userRoutes);
+app.use('/api/sauces', sauceRoutes);
 
 
 module.exports = app;
