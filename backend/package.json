@@ -11,10 +11,15 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
+    "maskdata": "^1.1.6",
     "mongoose": "^6.0.8",
     "mongoose-unique-validator": "^2.0.3",
-    "multer": "^1.4.3"
+    "multer": "^1.4.3",
+    "node-sass": "^6.0.1",
+    "nodeJS": "^1.0.0"
   }
 }
