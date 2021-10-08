@@ -27,11 +27,7 @@ app.use((req, res, next) => {
     // Accepter les échanges de différentes origines
     res.setHeader('Access-Control-Allow-Origin', '*');
     // Ajout des header nécessaires à l'API
-<<<<<<< HEAD
     res.setHeader('Accesss-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-=======
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
->>>>>>> 4ef7c9e2a8fc787c49aa0533b59aeb1fc0f55207
     // Ajout des requêtes nécessaires à l'API
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
